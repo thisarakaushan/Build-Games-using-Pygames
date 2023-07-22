@@ -52,6 +52,53 @@ Mainly we work with the events in the pygame.
 
 * Pygame handles all its events messaging through an event queue.
 
+### Event Methods
+
+1. pygame.event.pump - internally process pygame event handlers 
+2. pygame.event.get - get events from the queue
+3. pygame.event.poll - get a single event from the queue
+4. pygame.event.wait - wait for a single event from the queue
+5. pygame.event.peek - test if event types are waiting on the queue
+6. pygame.event.clear - remove all events from the queue
+7. pygame.event.event_name - get the string name from and event id
+8. pygame.event.set_blocked - control which events are allowed on the queue
+9. pygame.event.set_allowed - control which events are allowed on the queue
+10. pygame.event.get_blocked - test if a type of event is blocked from the queue
+11. pygame.event.set_grab - control the sharing of input devices with other applications
+12. pygame.event.get_grab - test if the program is sharing input devices
+13. pygame.event.post - place a new event on the queue
+14. pygame.event.Event - create a new event object
+
+### Surfaces
+
+*  Object for representing images
+* A memory buffer of pixels
+* Can reside in system memory or in special hardware memory that can be hardware accelerated
+* Used mostly with drawing functions
+        
+### Geometric Drawing
+Also known as line drawing 
+
+1. pygame.draw.rect - draw a rectangle shape
+2. pygame.draw.polygon - draw a shape with any number of sides > pygame.draw.circle - draw a circle around a point
+3. pygame.draw.ellipse - draw a round shape inside a rectangle
+4. pygame.draw.arc- draw a partial section of an ellipse
+5. pygame.draw.line - draw a straight line segment
+6. pygame.draw.lines - draw multiple contiguous line segments
+7. pygame.draw.aaline- draw fine antialiased lines
+8. pygame.draw.aalines- draw a connected sequence of antialiased lines
+
+### Antialiasing
+Also knowing as smoothing
+
+Because we use bitmapped displays a line is really made up of pixels placed next to one another, This make a line look like its has jagged edges. At the lowest level of a graphics package there are some digital signal processing techniques applied to a line to make it look smooth
+
+### Sprites
+
+* a two-dimensional image or animation that is integrated into a larger scene
+* Used in many simple interactive video games
+* Usually a small .jpg, .gif or .png graphic
+
 To handle our events we simply loop through the queue, check what type it is (with the help of the predefined constants in the pygame module) and then perform some action. This code will check if the user has pressed the close button on the top corner of the display, and if so terminate the program.
 
 for event in pygame.event.get():
